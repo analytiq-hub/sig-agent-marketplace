@@ -27,8 +27,6 @@
       "source": "./",
       "strict": false,
       "skills": [
-        "./skill-creator",
-        "./mcp-builder",
         "./canvas-design",
         "./algorithmic-art",
         "./internal-comms",
@@ -38,6 +36,132 @@
         "./theme-factory",
         "./brand-guidelines"
       ]
+    },
+    {
+      "name": "developer-skills",
+      "description": "Collection of skills for developers",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skill-creator",
+        "./mcp-builder",
+        "./webapp-testing"
+      ]
+    },
+    {
+      "name": "starlims-skills",
+      "description": "Collection of skills for Starlims",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./xfd-coding",
+        "./ssl-coding"
+      ],
+      "mcpServers": {
+        "starlims-mcp-server": {
+          "command": "starlims-mcp-server"
+        }
+      }
+    },
+    {
+      "name": "hook-monitor",
+      "description": "Monitor for hooks",
+      "source": "./hook-monitor",
+      "strict": false,
+      "hooks": {
+        "PreToolUse": [
+          {
+            "matcher": "*",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "PostToolUse": [
+          {
+            "matcher": "*",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "UserPromptSubmit": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "Notification": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "Stop": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "SubagentStop": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "PreCompact": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "SessionStart": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ],
+        "SessionEnd": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
