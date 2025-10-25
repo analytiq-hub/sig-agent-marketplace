@@ -77,8 +77,7 @@ The plugin does not save data locally - all tool input is forwarded directly to 
 
 ## Requirements
 
-- Python 3.6+
-- `requests` library (install with `pip install requests`)
+- Python 3.6+ (uses only built-in modules)
 
 ## Error Handling
 
@@ -109,9 +108,9 @@ The plugin includes comprehensive error handling:
    - Valid authentication token
    - Correct URL format
 
-4. **Missing Dependencies**: Install required Python packages:
+4. **Python Version**: Ensure you're using Python 3.6 or higher:
    ```bash
-   pip install requests
+   python3 --version
    ```
 
 ### Logs
