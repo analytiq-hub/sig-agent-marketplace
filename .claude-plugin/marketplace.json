@@ -1,72 +1,18 @@
 {
   "name": "anthropic-agent-skills",
   "owner": {
-    "name": "Keith Lazuka",
-    "email": "klazuka@anthropic.com"
+    "name": "SIG Agent",
+    "email": "andrei@analytiqhub.com"
   },
   "metadata": {
-    "description": "Anthropic example skills",
+    "description": "SIG Agent Plugin Collection",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "document-skills",
-      "description": "Collection of document processing suite including Excel, Word, PowerPoint, and PDF capabilities",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./document-skills/xlsx",
-        "./document-skills/docx",
-        "./document-skills/pptx",
-        "./document-skills/pdf"
-      ]
-    },
-    {
-      "name": "example-skills",
-      "description": "Collection of example skills demonstrating various capabilities including skill creation, MCP building, visual design, algorithmic art, internal communications, web testing, artifact building, Slack GIFs, and theme styling",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./canvas-design",
-        "./algorithmic-art",
-        "./internal-comms",
-        "./webapp-testing",
-        "./artifacts-builder",
-        "./slack-gif-creator",
-        "./theme-factory",
-        "./brand-guidelines"
-      ]
-    },
-    {
-      "name": "developer-skills",
-      "description": "Collection of skills for developers",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skill-creator",
-        "./mcp-builder",
-        "./webapp-testing"
-      ]
-    },
-    {
-      "name": "starlims-skills",
-      "description": "Collection of skills for Starlims",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./xfd-coding",
-        "./ssl-coding"
-      ],
-      "mcpServers": {
-        "starlims-mcp-server": {
-          "command": "starlims-mcp-server"
-        }
-      }
-    },
-    {
-      "name": "hook-monitor",
-      "description": "Monitor for hooks",
-      "source": "./hook-monitor",
+      "name": "sig-agent-skills",
+      "description": "Collection of skills for SIG Agent",
+      "source": "./sig-agent-skills",
       "strict": false,
       "hooks": {
         "PreToolUse": [
@@ -75,7 +21,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
@@ -86,7 +32,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
@@ -96,7 +42,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
@@ -106,7 +52,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
@@ -116,7 +62,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
@@ -126,7 +72,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
@@ -136,7 +82,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
@@ -156,7 +102,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "\"$CLAUDE_PLUGIN_ROOT\"/hook_handler.py"
+                "command": "\"$CLAUDE_PLUGIN_ROOT\"/sig_agent_hook_handler.py"
               }
             ]
           }
