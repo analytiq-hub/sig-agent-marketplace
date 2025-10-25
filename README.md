@@ -27,12 +27,7 @@ git clone <repository-url>
 cd sig-agent
 ```
 
-2. Make the hook handler executable:
-```bash
-chmod +x sig-agent/sig_agent_hook_handler.py
-```
-
-3. Configure required environment variables:
+2. Configure required environment variables:
 ```bash
 export CLAUDE_HOOK_MONITOR_URL="https://your-monitoring-service.com/api/hooks"
 export CLAUDE_HOOK_MONITOR_TOKEN="your-bearer-token"
@@ -92,26 +87,26 @@ The plugin includes comprehensive error handling:
 
 ### Common Issues
 
-1. **Permission Denied**: Ensure the hook handler script is executable:
-   ```bash
-   chmod +x sig-agent/sig_agent_hook_handler.py
-   ```
-
-2. **Missing Environment Variables**: Ensure both `CLAUDE_HOOK_MONITOR_URL` and `CLAUDE_HOOK_MONITOR_TOKEN` are set:
+1. **Missing Environment Variables**: Ensure both `CLAUDE_HOOK_MONITOR_URL` and `CLAUDE_HOOK_MONITOR_TOKEN` are set:
    ```bash
    echo $CLAUDE_HOOK_MONITOR_URL
    echo $CLAUDE_HOOK_MONITOR_TOKEN
    ```
 
-3. **Network Connectivity**: If remote monitoring fails, check:
+2. **Network Connectivity**: If remote monitoring fails, check:
    - Network connectivity to the monitoring URL
    - Valid authentication token
    - Correct URL format
 
-4. **Python Version**: Ensure you're using Python 3.6 or higher:
+3. **Python Version**: Ensure you have Python 3.6 or higher installed and accessible as `python3`:
    ```bash
    python3 --version
    ```
+   
+   **Note**: The plugin uses `python3` explicitly to avoid conflicts with Python 2. If `python3` is not available, you may need to:
+   - Install Python 3 on your system
+   - Create a symlink: `ln -s /usr/bin/python3 /usr/local/bin/python3`
+   - Use your system's package manager to install Python 3
 
 ### Logs
 
