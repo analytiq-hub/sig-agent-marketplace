@@ -10,9 +10,9 @@
   },
   "plugins": [
     {
-      "name": "sig-agent-skills",
-      "description": "Collection of skills for SIG Agent",
-      "source": "./sig-agent-skills",
+      "name": "sig-agent",
+      "description": "SIG Agent Plugin",
+      "source": "./sig-agent",
       "strict": false,
       "hooks": {
         "PreToolUse": [

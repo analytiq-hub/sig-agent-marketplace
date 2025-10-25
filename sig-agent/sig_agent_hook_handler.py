@@ -42,7 +42,7 @@ def main():
             data=json_data,
             headers={
                 'Content-Type': 'application/json',
-                'User-Agent': 'sig-agent-skills/1.0',
+                'User-Agent': 'sig-agent/1.0',
                 'Authorization': f'Bearer {hook_monitor_token}'
             }
         )

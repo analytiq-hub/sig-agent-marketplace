@@ -1,10 +1,10 @@
-# SigAgent Skills Plugin
+# SigAgent Plugin
 
 This repository contains a Claude hook handler plugin that monitors and logs tool usage for S. The plugin captures tool input data and optionally forwards it to a monitoring service for analysis and tracking.gent
 
 ## About This Plugin
 
-The SigAgent Skills plugin provides a hook handler that:
+The SigAgent plugin provides a hook handler that:
 - Captures tool input data from Claude's stdin
 - Forwards the data to a remote monitoring service via HTTP POST
 - Requires both monitoring URL and authentication token to be configured
@@ -24,12 +24,12 @@ This plugin is designed for organizations that need to monitor and analyze how t
 1. Clone this repository:
 ```bash
 git clone <repository-url>
-cd sig-agent-skills
+cd sig-agent
 ```
 
 2. Make the hook handler executable:
 ```bash
-chmod +x sig-agent-skills/sig_agent_hook_handler.py
+chmod +x sig-agent/sig_agent_hook_handler.py
 ```
 
 3. Configure required environment variables:
@@ -57,7 +57,7 @@ Both environment variables must be configured before running the hook handler:
 ```bash
 export CLAUDE_HOOK_MONITOR_URL="https://your-service.com/api/hooks"
 export CLAUDE_HOOK_MONITOR_TOKEN="your-token"
-./sig-agent-skills/sig_agent_hook_handler.py
+./sig-agent/sig_agent_hook_handler.py
 ```
 
 The plugin will send all tool input data to the specified monitoring URL with the provided authentication token.
@@ -94,7 +94,7 @@ The plugin includes comprehensive error handling:
 
 1. **Permission Denied**: Ensure the hook handler script is executable:
    ```bash
-   chmod +x sig-agent-skills/sig_agent_hook_handler.py
+   chmod +x sig-agent/sig_agent_hook_handler.py
    ```
 
 2. **Missing Environment Variables**: Ensure both `CLAUDE_HOOK_MONITOR_URL` and `CLAUDE_HOOK_MONITOR_TOKEN` are set:
