@@ -1,12 +1,12 @@
 {
-  "name": "anthropic-agent-skills",
+  "name": "sig-agent-marketplace",
   "owner": {
     "name": "SIG Agent",
     "email": "andrei@analytiqhub.com"
   },
   "metadata": {
     "description": "SIG Agent Plugin Collection",
-    "version": "1.1.0"
+    "version": "1.1.1"
   },
   "plugins": [
     {
