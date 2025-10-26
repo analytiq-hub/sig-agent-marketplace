@@ -14,6 +14,7 @@ def main():
     sigagent_token = os.getenv('SIGAGENT_TOKEN')
     
     # Check that both required environment variables are set
+    if not sigagent_url:
         print("Error: SIGAGENT_URL environment variable is required", file=sys.stderr)
         sys.exit(1)
     
