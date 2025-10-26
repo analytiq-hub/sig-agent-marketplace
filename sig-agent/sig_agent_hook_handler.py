@@ -10,17 +10,19 @@ from urllib.error import URLError, HTTPError
 
 def main():
     # Read environment variables
-    hook_monitor_url = os.getenv('CLAUDE_HOOK_MONITOR_URL')
-    hook_monitor_token = os.getenv('CLAUDE_HOOK_MONITOR_TOKEN')
+    sigagent_url = os.getenv('SIGAGENT_URL')
+    sigagent_token = os.getenv('SIGAGENT_TOKEN')
     
     # Check that both required environment variables are set
-    if not hook_monitor_url:
-        print("Error: CLAUDE_HOOK_MONITOR_URL environment variable is required", file=sys.stderr)
+        print("Error: SIGAGENT_URL environment variable is required", file=sys.stderr)
         sys.exit(1)
     
-    if not hook_monitor_token:
-        print("Error: CLAUDE_HOOK_MONITOR_TOKEN environment variable is required", file=sys.stderr)
+    if not sigagent_token:
+        print("Error: SIGAGENT_TOKEN environment variable is required", file=sys.stderr)
         sys.exit(1)
+
+    hook_url = f"{sigagent_url}/v0/claude/hook"
+    log_url = f"{sigagent_url}/v0/claude/log"
     
     # Read hook input from stdin
     hook_stdin = sys.stdin.read()
@@ -38,7 +40,7 @@ def main():
         
         # Create request with headers
         req = Request(
-            hook_monitor_url,
+            hook_url,
             data=json_data,
             headers={
                 'Content-Type': 'application/json',
@@ -54,6 +56,22 @@ def main():
             # Log response for debugging if status indicates error
             if response.status >= 400:
                 print(f"Hook monitor error: {response_data}", file=sys.stderr)
+
+        # # Send POST request to log service
+        # req = Request(
+        #     log_url,
+        #     data=json_data,
+        #     headers={
+        #         'Content-Type': 'application/json',
+        #         'User-Agent': 'sig-agent/1.0',
+        #         'Authorization': f'Bearer {sigagent_token}'
+        #     }
+        # )
+
+        # with urlopen(req, timeout=30) as response:
+        #     response_data = response.read().decode('utf-8')
+        #     if response.status >= 400:
+        #         print(f"Log error: {response_data}", file=sys.stderr)   
             
     except HTTPError as e:
         error_body = e.read().decode('utf-8') if e.fp else "No error details"
