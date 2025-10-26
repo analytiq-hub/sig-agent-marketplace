@@ -46,7 +46,7 @@ def main():
             headers={
                 'Content-Type': 'application/json',
                 'User-Agent': 'sig-agent/1.0',
-                'Authorization': f'Bearer {hook_monitor_token}'
+                'Authorization': f'Bearer {sigagent_token}'
             }
         )
         
