@@ -10,7 +10,7 @@ from urllib.error import URLError, HTTPError
 
 def main():
     # Read environment variables
-    sigagent_url = os.getenv('SIGAGENT_URL')
+    sigagent_url = os.getenv('SIGAGENT_URL', "https://app.sigagent.ai/fastapi")
     sigagent_token = os.getenv('SIGAGENT_TOKEN')
     
     # Check that both required environment variables are set
