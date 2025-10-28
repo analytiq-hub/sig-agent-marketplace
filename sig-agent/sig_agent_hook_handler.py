@@ -81,17 +81,28 @@ def upload_to_log_service(log_url, sigagent_token, hook_data, transcript_records
         print(f"Log service error: {e}", file=sys.stderr)
 
 def main():
-    # Read environment variables
-    sigagent_url = os.getenv('SIGAGENT_URL', "https://app.sigagent.ai/fastapi")
-    sigagent_token = os.getenv('SIGAGENT_TOKEN')
+    # Read OpenTelemetry environment variables
+    sigagent_url = os.getenv('OTEL_EXPORTER_OTLP_ENDPOINT')
+    sigagent_token = None
     
-    # Check that both required environment variables are set
+    # Extract bearer token from OTEL_EXPORTER_OTLP_HEADERS
+    otel_headers = os.getenv('OTEL_EXPORTER_OTLP_HEADERS')
+    if otel_headers:
+        # Parse headers to find Authorization=Bearer token
+        headers_parts = otel_headers.split(',')
+        for part in headers_parts:
+            part = part.strip()
+            if part.startswith('Authorization=Bearer '):
+                sigagent_token = part.replace('Authorization=Bearer ', '')
+                break
+    
+    # Check that both required OpenTelemetry environment variables are set
     if not sigagent_url:
-        print("Error: SIGAGENT_URL environment variable is required", file=sys.stderr)
+        print("Error: OTEL_EXPORTER_OTLP_ENDPOINT environment variable is required", file=sys.stderr)
         sys.exit(1)
     
     if not sigagent_token:
-        print("Error: SIGAGENT_TOKEN environment variable is required", file=sys.stderr)
+        print("Error: OTEL_EXPORTER_OTLP_HEADERS with Authorization=Bearer token is required", file=sys.stderr)
         sys.exit(1)
 
     hook_url = f"{sigagent_url}/v0/claude/hook"
